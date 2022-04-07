@@ -84,7 +84,7 @@ app.MapGet("/stars", async (
         async entry =>
         {
             await using var stream = await GenerateImage(env.ContentRootPath, parameters);
-            entry.SlidingExpiration = TimeSpan.FromSeconds(5);
+            entry.SlidingExpiration = TimeSpan.FromMinutes(4);
             return stream.ToArray();
         });
     
